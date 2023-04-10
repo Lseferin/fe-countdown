@@ -12,14 +12,14 @@
         <div class="global">
             <div class="left">
                 <h1>READY TO LAUNCH IN...</h1>
-                <div class="time">
-                    <ul>
+                <div id="time">
+                    <!-- <ul>
                         <li>Dias</li>
                         <li>Horas</li>
                         <li>Minutos</li>
                         <li>Segundos</li>
-                    </ul>
-                    <p id="time">08 : 12 : 44 : 28</p>
+                    </ul> -->
+                    <!-- <p id="time">08 : 12 : 44 : 28</p> -->
                 </div>
                 <p>Inscreva-se para saber mais sobre o lançamento</p>
                 <button>
@@ -32,5 +32,37 @@
            </div>
         </div>
 
+        <script>
+            function updateTime () {
+                
+                future = Date.parse("apr 12, 2023 01:30:00");
+                // data alvo da contagem
+                now = new Date();
+                // data atual no dispositivo
+                diff = future - now;
+                // variavel que recebe a data alvo e subtrai a data atual
+
+                days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                hours = Math.floor(diff / (1000 * 60 * 60));
+                mins = Math.floor(diff / (1000 * 60));
+                secs = Math.floor(diff / 1000);
+                // calculo de acordo com a regra de horário
+            
+                d = days;
+                h = hours - days * 24;
+                m = mins - hours * 60;
+                s = secs - mins * 60;
+
+                document.getElementById("time")
+                .innerHTML =
+                '<div>' + d + '<span>Days</span></div>' +
+                '<div>' + h + '<span>Hours</span></div>' +
+                '<div>' + m + '<span>Minutes</span></div>' +
+                '<div>' + s + '<span>Seconds</span></div>';
+                console.log(updateTime())
+}
+
+    setInterval('updateTime()', 1000);
+        </script>
     </body>
 </html>

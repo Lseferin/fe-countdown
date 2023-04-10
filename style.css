@@ -50,7 +50,15 @@ li {
 #time {
     color: #4D4C59;
     font-size: 72px;
-    
+    display: flex; ;
+}
+
+#time div span {
+    color: #4D4C59;
+    display: block;
+    margin-top: 15px;
+    font-size: .35em;
+    font-weight: 400;
 }
 
 button {
